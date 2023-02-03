@@ -1,0 +1,2941 @@
+<br>  
+<h4    style="text-align:center" > All Products </h4> 
+<div class="container"> 
+  
+  <div class="row"  > 
+    <div class="col col-12 col-md-6 col-lg-3" *ngFor="let item of dataarray">
+      <div class="col col-12 col-md-6 col-lg-3">
+        
+      <div class="card" style="width: 13rem;" >
+          <img [src]="item.image" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h3 class="card-title">{{item.title}}</h3>
+            <p class="card-text">{{item.description}}</p>
+            <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal1">Commander </button> &nbsp;
+           
+            
+         
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4  style="color: crimson;"     class="modal-title" id="exampleModalLabel"> Votre informations pour passer un commande!</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm" (ngSubmit)="commander(f)">
+          <div class="row">
+            
+            
+              <br>
+              <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+              <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+            
+            
+              <br>
+              <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+              <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+              <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+           
+           
+              <br>
+              <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+              <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+           
+          
+  
+            
+                <br>
+              <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+              <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+            
+            <div>
+             
+                <br>
+                
+              </div>
+          </div>
+          </form> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <div class="alert alert-success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+          <button type="button" class="btn btn-primary">Commander</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+      
+  
+  
+  
+  
+  <!-- <div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3"  >
+    <div class="card" style="width: 13rem;" >
+
+        <img src="assets\ecran1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Ecran Samsung 24-FULL HD</h3>
+          <p class="card-text"> 459.000 TND</p>
+         
+        </div>
+      </div>
+      
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal1">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal2">INFO </button> 
+    </div>
+</div>
+
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\ecran2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+        
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal3">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal4">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\ecran3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+          
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal5">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal6">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\ecran4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+          
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal7">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal8">INFO </button> 
+    </div>
+</div>
+
+<br>
+<br>
+<br>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\casque2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+          
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal9">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal10">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\casque3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+         
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal11">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal12">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\casque4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+        
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal13">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal14">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\casque5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+         
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal15">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal16">INFO </button> 
+    </div>
+</div>
+
+
+  <br>
+<br>
+<br>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\h1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+        
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal17">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal18">INFO </button> 
+    </div>
+</div>
+<br>
+<br>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\h2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+          
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal19">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal20">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+    <div class="col col-12 col-md-6 col-lg-3">
+    <div class="card" style="width: 13rem;" >
+        <img src="assets\h3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">Card title</h3>
+          <p class="card-text"></p>
+         
+         
+        </div>
+      </div>
+  </div>
+  <div class="btn">
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal21">Commander </button> &nbsp;
+    <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal22">INFO </button> 
+    </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\h4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"> </p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal23">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal24">INFO </button> 
+  </div>
+</div>
+
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\s1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal25">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal26">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\s2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal27">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal28">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\s3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal29">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal30">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\s4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal31">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal32">INFO </button> 
+  </div>
+</div>
+
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\c1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+      
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal33">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal34">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\c2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal35">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal36">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\c3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal37">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal38">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\c4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+     
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal39">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal40">INFO </button> 
+  </div>
+</div>
+
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\hh1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal41">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal42">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\hh2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+      
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal43">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal44">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\hh3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal45">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal46">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\hh4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal47">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal48">INFO </button> 
+  </div>
+</div>
+
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\m1.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal49">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal50">INFO </button> 
+  </div>
+</div>
+
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\m2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal51">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal52">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\m3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal53">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal54">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="assets\m4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal55">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal56">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="https://www.cybertek.fr/images_produits/7db7e275-5dd0-4716-8f6d-87b598b28d5b.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+       
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal57">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal58">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="https://www.cybertek.fr/images_produits/7db7e275-5dd0-4716-8f6d-87b598b28d5b.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal59">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal60">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="https://www.cybertek.fr/images_produits/7db7e275-5dd0-4716-8f6d-87b598b28d5b.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal61">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal62">INFO </button> 
+  </div>
+</div>
+<div class="col col-12 col-md-6 col-lg-3">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 13rem;" >
+      <img src="https://www.cybertek.fr/images_produits/7db7e275-5dd0-4716-8f6d-87b598b28d5b.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h3 class="card-title">Card title</h3>
+        <p class="card-text"></p>
+       
+        
+      </div>
+    </div>
+</div>
+<div class="btn">
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal63">Commander </button> &nbsp;
+  <button class="btn btn-success" style="float: center"  data-bs-toggle="modal" data-bs-target="#exampleModal64">INFO </button> 
+  </div>
+</div>
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4  style="color: crimson;"     class="modal-title" id="exampleModalLabel"> Votre informations pour passer un commande!</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="addproduct(f)">
+        <div class="row">
+          
+          
+            <br>
+            <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+            <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+          
+          
+            <br>
+            <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+						<small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+            <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+         
+         
+            <br>
+            <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+            <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+         
+        
+
+          
+              <br>
+            <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+            <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+          
+          <div>
+           
+              <br>
+              
+            </div>
+        </div>
+        </form> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="alert alert-success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+        <button type="button" class="btn btn-primary">Commander</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="addproduct(f)">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            
+          </div>
+      </div>
+           
+    </form>
+           
+            
+          
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="alert alert-success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+        <button type="button" class="btn btn-primary">Commander</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal5" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal6" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal7" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal8" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal9" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal10" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal11" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal12" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal13" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal14" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal15" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal16" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal17" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal18" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal19" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal20" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal21" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal22" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal23" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal24" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal25" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal26" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal27" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal28" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal29" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal30" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal31" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal32" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal33" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal34" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal35" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal36" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal37" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal38" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal39" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal40" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal41" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal42" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal43" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal44" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal45" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal46" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal47" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+          Quanité 
+          <select name="my_html_select_box">
+
+            <option>1 </option>
+            <option>2</option>
+            <option>3</option>
+          
+          </select> 
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal48" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal49" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal50" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal51" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal52" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal53" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal54" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal55" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal56" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal57" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          
+          
+          <br>
+          <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+          <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+        
+        
+          <br>
+          <input type="text" name="email" #email="ngModel" ngModel class="form-control" placeholder="email"required>
+          <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+          <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+       
+       
+          <br>
+          <input type="tel" class="form-control" placeholder="Telphone" aria-label="Telephone" name="telephone" #telephone="ngModel" ngModel  required>
+          <small class="alert alert-danger" *ngIf="telephone.errors?.required  && telephone.touched" > this input telephone is required</small>
+       
+      
+
+        
+            <br>
+          <textarea type= "text" class="form-control" [defaultValue]="adresse" cols="10" rows="5" placeholder="Adresse" name="adresse" #adresse="ngModel" ngModel  required></textarea>
+          <small class="alert alert-danger" *ngIf="adresse.errors?.required  && adresse.touched" > this input Adresse is required</small> 
+        
+        <div>
+            <br>
+            
+          </div>
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="exampleModal58" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div>
+            <h4 style="color: brown;" > Name of Product</h4> 
+            
+           <p> ... </p>
+          
+          </div>
+          <h4 style="color: brown;" > Description</h4> 
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+
+
+
+
+
+     
+ 
+<!-- <h4    style="text-align:center" > All Products </h4>
+<div class="container"> 
+  <div class="row"  > 
+     
+</div>
+</div>-->
+

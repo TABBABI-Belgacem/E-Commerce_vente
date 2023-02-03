@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row">
+
+     <div class="col-md-6 " >
+         <div class="card">
+ 
+            
+            <h3 class="uk-card-title">  <p class="text-center" style="color: crimson;">   <marquee>Register </marquee> </h3>  
+        
+         
+              
+                <form  #f="ngForm" (ngSubmit)="register(f)">
+                  
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: happy"></span>
+                        <input class="uk-input" type="text"   placeholder="fullName" name="flName"  #flName="ngModel" class="form-control" ngModel required  >
+                        <small class="alert alert-danger" *ngIf="flName.errors?.required  && flName.touched" > this input fullName is required </small>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                        <input class="uk-input" type="text" placeholder="Email" name="email"   #email="ngModel"  class="form-control"ngModel email required>
+                        <small class="alert alert-danger" *ngIf="email.errors?.required  && email.touched" > this input email is required</small>
+    <small class="alert alert-danger" *ngIf="email.errors?.email && email.touched" > this input should be email </small>
+                        
+        
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span   class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                        <input class="uk-input" type="password" name="password"  placeholder="Password" required #password="ngModel" class="form-control" ngModel required minlength="8">
+                    <small class="alert alert-danger" *ngIf="password.errors?.required  && password.touched" >  required</small>
+    <small class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched"> this input password should +8 caracters</small>
+    
+        
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-inline">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                        <input class="uk-input" type="password" placeholder="Confirm_Password" class="form-control" name="confirm_Password" #confirm_Password="ngModel" ngModel  required minlength="8">
+                        <small class="alert alert-danger" *ngIf="confirm_Password.errors?.required  && confirm_Password.touched" >  confirm_Password is required</small>
+                        <small class="alert alert-danger" *ngIf="password.value!==confirm_Password.value  && password.touched"> confirm password  not equal with password</small>
+                       
+                    </div>
+                </div>
+                <div class="d-flex justify-content-center mt-3 register_container">
+                        
+                    
+                    
+                        <button   type="submit"  class="btn btn-success" [disabled]="f.invalid"  style="width: 100px;">Register </button>    
+               
+                 </div>
+    
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links">
+                        Already Member?<a href="login">Sign In</a>
+                    </div>
+               
+                </div> 
+          
+            </form>
+        </div>
+    </div>
+    
+</div>
+
+</div>
+

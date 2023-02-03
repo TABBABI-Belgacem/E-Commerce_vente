@@ -1,0 +1,60 @@
+
+<br>  
+<h4    style="text-align:center" > All Products </h4>
+<div class="container"> 
+    <button class="btn btn-primary" style="float: right"  data-bs-toggle="modal" data-bs-target="#exampleModal">Add Products </button>
+  <div class="row"  > 
+     
+      <div class="col col-12 col-md-6 col-lg-3" *ngFor="let item of dataarray">
+    <div class="col col-12 col-md-6 col-lg-3" *ngIf="Uid===item.uid">
+    <div class="card" style="width: 13rem;" >
+        <img [src]="item.image" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h3 class="card-title">{{item.title}}</h3>
+          <p class="card-text">{{item.description}}</p>
+         <button class="btn btn-danger" (click)="Delete(item.id)"> Delete</button> &nbsp;
+         <button class="btn btn-info" (click)="Update()"> Update</button>
+          
+       
+        </div>
+      </div>
+  </div>
+</div>
+
+
+
+</div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form #f="ngForm" (ngSubmit)="addproduct(f)">
+            <div class="row">
+                <div>
+                  <input type="text" class="form-control" placeholder="Title" aria-label="Title" name="title" #title="ngModel" ngModel>
+                </div>
+                
+                <div>
+                    <br>
+                  <textarea class="form-control" [defaultValue]="description" cols="30" rows="10" placeholder="Description" name="description" #description="ngModel" ngModel></textarea>
+                </div>
+                <div>
+                    <br>
+                    <input type="text" class="form-control" placeholder="Image" aria-label="" name="image" #image="ngModel" ngModel >
+                  </div>
+              </div>
+            
+        
+        <div class="alert alert-success" *ngIf="messageSuccess">{{messageSuccess}}</div>
+         
+          <button  class="btn btn-primary">Add_Product</button>
+        </form>
+        </div> 
+      </div>
+    </div>
+  </div>
